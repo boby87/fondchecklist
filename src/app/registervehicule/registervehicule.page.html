@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registervehicule</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="registervehicule(f.value)" #f="ngForm">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+
+          <ion-item>
+            <ion-input type="text" placeholder="matricule Trancteur" name="matricule" ngModel required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="immatriculaion Trancteur" name="immatriculaiontracteur" ngModel required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="assurance" name="assurance" ngModel required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" placeholder="Age tracteur" name="agetracteur" ngModel required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" placeholder="age citerne" name="ageciterne" ngModel required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" placeholder="immatriculation citerne" name="immatriculationciterne" ngModel required></ion-input>
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button  full type="submit" [disabled]="f.invalid">Register</button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</ion-content>

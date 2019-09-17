@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registertransporteur</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form  #form="ngForm" (ngSubmit)="register(form.value)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div>
+            <h3>Save Transporteur!</h3>
+          </div>
+          <div>
+            <ion-item>
+              <ion-input  name="nomtransporteur" type="text" placeholder="Nom Transporteur" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="dateexprirationscdp" type="date" placeholder="Date Expriration SCDP" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div>
+            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Register</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

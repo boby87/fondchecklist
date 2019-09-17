@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>registerchecklist: {{fleetservice.transporteur.nomtransporteur}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-card-content>
+    <ion-input type="text" [(ngModel)]="question.description"></ion-input>
+    <ion-item-group>
+      <ion-label>Etat</ion-label>
+      <ion-select [(ngModel)]="question.etatquestion">
+        <ion-select-option>normal</ion-select-option>
+        <ion-select-option>bloquant</ion-select-option>
+      </ion-select>
+    </ion-item-group>
+    <ion-button (click)="addquestion(question)">Ok</ion-button>
+  </ion-card-content>
+  <ion-list *ngFor="let q of listquestion">
+    <ion-item *ngIf="listquestion">
+      <ion-row>
+        <ion-col>
+          <ion-label>{{q.description}}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>{{q.etatquestion}}</ion-label>
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="validerquestion()">Valider</ion-button>
+</ion-card>
+</ion-content>

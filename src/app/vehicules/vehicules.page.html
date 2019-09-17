@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>vehicules</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-card-content *ngFor="let v of fleetservice.listvehicule">
+    <ion-item>
+      <ion-label>{{v.matricule}}</ion-label>
+      <ion-label>{{v.assurance}}</ion-label>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+</ion-content>

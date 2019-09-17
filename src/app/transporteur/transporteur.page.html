@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>transporteur: {{fleelservicetra.transporteur.nomtransporteur}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngIf="loginservice.is_truck">
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-start">
+          <ion-button (click)="AddChecklist()">Add check list</ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ion-text-end">
+          <ion-button (click)="AddVehicule()">Add Vehicule</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-start">
+          <ion-button (click)="AddChauffeur()">Add Chauffeur</ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="ion-text-end">
+          <ion-button (click)="UpdateTransporteur()">Update Transporteur</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card *ngIf="!loginservice.is_truck">
+    <ion-card-title>
+      <ion-label>liste des vehicules </ion-label>
+    </ion-card-title>
+    <ion-card-content *ngFor="let v of fleelservicetra.transporteur.vehiculesList">
+      <ion-item (click)="Gochecklist(v.id_vehicule)">
+        <ion-label>{{v.matricule}}</ion-label>
+        <ion-label>{{v.assurance}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
