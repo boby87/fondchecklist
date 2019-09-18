@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FleetManagerService} from '../Service/FleetManagerService';
 
 @Component({
   selector: 'app-dispatcher',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DispatcherPage implements OnInit {
 
-  constructor() { }
+  constructor(public fleetchecklisdispa:FleetManagerService) { }
 
   ngOnInit() {
+    this.fleetchecklisdispa.GetAllchecklist();
   }
 
 }

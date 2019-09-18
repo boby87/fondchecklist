@@ -8,6 +8,8 @@ export class CheckList {
     designation:string;
     vehicules:Vehicules;
     listquestions:CheckListQuestions[];
+    note:number;
+    status:string;
     appUser:UserModel;
 
 }

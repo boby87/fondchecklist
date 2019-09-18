@@ -3,4 +3,5 @@ export class CheckListQuestions {
     description:string;
     conforme:string;
     No:number;
+    etatquestion:string;
 }

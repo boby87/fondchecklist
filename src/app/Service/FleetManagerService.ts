@@ -19,6 +19,7 @@ export class FleetManagerService {
     public listvehicule:Vehicules[]=[];
     public transporteur:Transporteur=new Transporteur();
     public checklist:CheckList=new CheckList();
+    public listchecklis:CheckList[]=[];
 
 
     constructor(public httpclient:HttpClient,public router:Router,public loginservice:LoginService) { }
@@ -72,7 +73,7 @@ export class FleetManagerService {
             ,erro=>console.log(erro)
         )
     }
-
+//cette methode permet de creer une checklist
     GetChecklist(id_vehicule: number) {
        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
         this.httpclient.get<CheckList>(AdressIp.host+'fleet/save/checklist/'+id_vehicule,
@@ -99,4 +100,19 @@ export class FleetManagerService {
         return checklis;
     }
 
+    validerchecklist(checklist: CheckList) {
+        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
+        this.httpclient.post(AdressIp.host+'fleet/update/checklist',checklist,
+            {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
+                data=>console.log(data),error1 => console.log(error1)
+        )
+    }
+
+    GetAllchecklist() {
+        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
+        this.httpclient.get<CheckList[]>(AdressIp.host+'fleet/all_checklist/',
+            {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
+            data=>{ console.log(data),this.listchecklis=data},error1 => console.log(error1)
+        )
+    }
 }
