@@ -22,7 +22,6 @@ export class ChecklistPage implements OnInit {
      while (i<checklist.listquestions.length){
        if (checklist.listquestions[i].etatquestion=="bloquant"&& checklist.listquestions[i].conforme=="oui"){
          status="pas conforme";
-           checklist.status="il y'a: "+i;
        }
        if (checklist.listquestions[i].conforme=="oui"){
          note +=1;
@@ -38,7 +37,7 @@ export class ChecklistPage implements OnInit {
      }else {
          alert("conforme")
      }
-
+     checklist.status=status;
      this.fleetservicecheck.validerchecklist(checklist);
   }
 }
