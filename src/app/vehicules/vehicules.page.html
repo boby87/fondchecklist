@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/"> </ion-back-button>
+    </ion-button>
     <ion-title>vehicules</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,8 +11,8 @@
 <ion-card>
   <ion-card-content *ngFor="let v of fleetservice.listvehicule">
     <ion-item>
-      <ion-label>{{v.matricule}}</ion-label>
-      <ion-label>{{v.assurance}}</ion-label>
+      <ion-label>Mat: {{v.matricule}}</ion-label>
+      <ion-label>Assur: {{v.assurance}}</ion-label>
     </ion-item>
   </ion-card-content>
 </ion-card>

@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/"> </ion-back-button>
+    </ion-button>
     <ion-title>registerchauffeur</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,13 +23,15 @@
               <ion-input name="permis" type="text" placeholder="permis" ngModel required></ion-input>
             </ion-item>
             <ion-item>
+              <ion-label>date Delivrance Assurance</ion-label>
               <ion-input name="dateDelivrance" type="date" placeholder="date Delivrance Assurance" ngModel required></ion-input>
             </ion-item>
             <ion-item>
+              <ion-label>date Expire Assurance</ion-label>
               <ion-input name="dateExpire" type="date" placeholder="date Expire Assurance" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="phone" type="text" placeholder="Phone " ngModel required></ion-input>
+              <ion-input name="phone" type="tel" placeholder="Phone " ngModel required></ion-input>
             </ion-item>
           </div>
           <div padding>

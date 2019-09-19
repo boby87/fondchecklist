@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/"> </ion-back-button>
+    </ion-button>
     <ion-title>registerchecklist: {{fleetservice.transporteur.nomtransporteur}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,10 +10,10 @@
 <ion-content>
 <ion-card>
   <ion-card-content>
-    <ion-input type="text" [(ngModel)]="question.description"></ion-input>
+    <ion-input type="text" [(ngModel)]="question.description" required placeholder="Entrez les question"></ion-input>
     <ion-item-group>
       <ion-label>Etat</ion-label>
-      <ion-select [(ngModel)]="question.etatquestion">
+      <ion-select [(ngModel)]="question.etatquestion" >
         <ion-select-option>normal</ion-select-option>
         <ion-select-option>bloquant</ion-select-option>
       </ion-select>

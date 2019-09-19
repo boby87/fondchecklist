@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/"> </ion-back-button>
+    </ion-button>
     <ion-title>registertransporteur</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,6 +20,7 @@
               <ion-input  name="nomtransporteur" type="text" placeholder="Nom Transporteur" ngModel required></ion-input>
             </ion-item>
             <ion-item>
+              <ion-label>Date Expriration SCDP</ion-label>
               <ion-input name="dateexprirationscdp" type="date" placeholder="Date Expriration SCDP" ngModel required></ion-input>
             </ion-item>
           </div>
