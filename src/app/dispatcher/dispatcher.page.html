@@ -5,21 +5,36 @@
 </ion-header>
 
 <ion-content>
-  <div class='summary_row'>
-    <div  class='summarycell'>Matricule Vehicule</div>
-    <div  class='summarycell'>Status</div>
-    <div  class='summarycell'>Note</div>
+  <ion-card >
+    <ion-card-header>
+      <ion-row>
+        <ion-col>
+          <ion-label>Matricule</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Status</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>Note</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
 
-  </div>
-  <div  class='summary_row' *ngFor="let c of fleetchecklisdispa.listchecklis">
-    <div  class='summarycell'>
-      {{c.vehicules.matricule}}
-    </div>
-    <div  class='summarycell'>
-      {{c.status}}
-    </div>
-    <div  class='summarycell'>
-      {{c.note}}
-    </div>
-  </div>
+    <ion-card-content>
+      <ion-row *ngFor="let c of fleetchecklisdispa.listchecklis">
+        <ion-item>
+          <ion-col>
+            <ion-label>{{c.vehicules.matricule}}</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{c.status}}</ion-label>
+          </ion-col>
+          <ion-col>
+            <ion-label>{{c.note}}</ion-label>
+          </ion-col>
+        </ion-item>
+      </ion-row>
+    </ion-card-content>
+
+  </ion-card>
 </ion-content>
