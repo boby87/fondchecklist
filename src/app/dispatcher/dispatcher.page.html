@@ -5,15 +5,21 @@
 </ion-header>
 
 <ion-content>
-<ion-card>
-  <ion-card-content>
-    <ion-list *ngFor="let c of fleetchecklisdispa.listchecklis">
-      <ion-item>
-        <ion-label>Note: {{c.note}}</ion-label>
-        <ion-label>status: {{c.status}}</ion-label>
-        <ion-label>Matricule vehicule: {{c.vehicules.matricule}}</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-card-content>
-</ion-card>
+  <div class='summary_row'>
+    <div  class='summarycell'>Matricule Vehicule</div>
+    <div  class='summarycell'>Status</div>
+    <div  class='summarycell'>Note</div>
+
+  </div>
+  <div  class='summary_row' *ngFor="let c of fleetchecklisdispa.listchecklis">
+    <div  class='summarycell'>
+      {{c.vehicules.matricule}}
+    </div>
+    <div  class='summarycell'>
+      {{c.status}}
+    </div>
+    <div  class='summarycell'>
+      {{c.note}}
+    </div>
+  </div>
 </ion-content>

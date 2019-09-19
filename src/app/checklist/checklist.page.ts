@@ -16,6 +16,7 @@ export class ChecklistPage implements OnInit {
   }
 
   upchecklist(checklist:CheckList){
+      debugger;
      let i=0;
      let status:string;
      let note=0;
@@ -24,7 +25,7 @@ export class ChecklistPage implements OnInit {
          status="pas conforme";
        }
        if (checklist.listquestions[i].conforme=="oui"){
-         note +=1;
+         checklist.note +=1;
        }
        i++;
      }
@@ -33,7 +34,7 @@ export class ChecklistPage implements OnInit {
      }else if (note<(80*checklist.listquestions.length)/100){
        status="pas conforme"
          alert(status);
-         checklist.note=note;
+
      }else {
          alert("conforme")
      }
