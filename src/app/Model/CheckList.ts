@@ -10,6 +10,7 @@ export class CheckList {
     listquestions:CheckListQuestions[];
     note:number;
     status:string;
+    namecheckeur:string;
     appUser:UserModel;
 
 }

@@ -20,6 +20,12 @@ export class FleetManagerService {
     public transporteur:Transporteur=new Transporteur();
     public checklist:CheckList=new CheckList();
     public listchecklis:CheckList[]=[];
+    public listchauffeur:Chauffeur[]=[];
+    public chauffeur:Chauffeur=new Chauffeur()//cette variable est pour associer le chauffeur au vehicule
+    vehicule: Vehicules=new Vehicules();
+    public listquestionnaire: Questionnaire[]=[];
+
+    //cette variable est pour associer le chauffeur au vehicule
 
 
     constructor(public httpclient:HttpClient,public router:Router,public loginservice:LoginService) { }
@@ -27,7 +33,7 @@ export class FleetManagerService {
     register_vehicule(vehicule:Vehicules,id_transporteur:number) {
         this.httpclient.post(AdressIp.host+'fleet/save/vehicule/'+id_transporteur,vehicule,
             {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
-            resp=>console.log(true)
+            resp=>this.router.navigateByUrl("/listtransportuer")
             ,erro=>console.log(erro)
         )
 
@@ -36,7 +42,7 @@ export class FleetManagerService {
     register_transporteur(transporteur:Transporteur,) {
         this.httpclient.post<Transporteur>(AdressIp.host+'fleet/save/transporteur/',transporteur,
             {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
-            resp=>console.log(resp)
+            resp=>{ console.log(resp),this.Alltransporteur(),this.router.navigateByUrl("/listtransportuer")}
             ,erro=>console.log(erro)
         )
 
@@ -45,7 +51,7 @@ export class FleetManagerService {
     register_chauffeur(chauffeur:Chauffeur,id_transporteur:number) {
         this.httpclient.post(AdressIp.host+'fleet/save/chauffeur/'+id_transporteur,chauffeur,
             {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
-            resp=>console.log(true)
+            resp=>this.router.navigateByUrl("/listtransportuer")
             ,erro=>console.log(erro)
         )
 
@@ -58,8 +64,18 @@ export class FleetManagerService {
         )
 
     }
-    Allvehicule() {
-        this.httpclient.get<Vehicules[]>(AdressIp.host+'fleet/all_transporteur/',
+
+    AllchauffeurTranspro(id_transporteur:number) {
+        this.httpclient.get<Transporteur[]>(AdressIp.host+'fleet/all_transporteur/'+id_transporteur,
+            {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
+            resp=>{this.listtransporteur=resp,console.log(resp)}
+            ,erro=>console.log(erro)
+        )
+
+    }
+
+    Allvehicule(id_transproteur:number) {
+        this.httpclient.get<Vehicules[]>(AdressIp.host+'fleet/all_transporteur/'+id_transproteur,
             {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
             resp=>{this.listvehicule=resp,console.log(resp)}
             ,erro=>console.log(erro)
@@ -74,9 +90,9 @@ export class FleetManagerService {
         )
     }
 //cette methode permet de creer une checklist
-    GetChecklist(id_vehicule: number) {
+    GetChecklist() {
        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
-        this.httpclient.get<CheckList>(AdressIp.host+'fleet/save/checklist/'+id_vehicule,
+        this.httpclient.post<CheckList>(AdressIp.host+'fleet/save/checklist/'+this.vehicule.id_vehicule,this.chauffeur,
             {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
             resp=>{console.log(resp),this.checklist=resp;
             let i=0;
@@ -104,7 +120,9 @@ export class FleetManagerService {
         if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
         this.httpclient.post(AdressIp.host+'fleet/update/checklist',checklist,
             {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
-                data=>console.log(data),error1 => console.log(error1)
+                data=>{console.log(data),
+                    this.router.navigateByUrl('/listtransportuer')
+                },error1 => console.log(error1)
         )
     }
 
@@ -113,6 +131,42 @@ export class FleetManagerService {
         this.httpclient.get<CheckList[]>(AdressIp.host+'fleet/all_checklist/',
             {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
             data=>{ console.log(data),this.listchecklis=data},error1 => console.log(error1)
+        )
+    }
+
+    getlistcheckfleet() {
+        this.listchecklis=[];
+        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
+        this.httpclient.get<CheckList[]>(AdressIp.host+'fleet/all_checklist_fleet/',
+            {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
+            data=>{ console.log(data),this.listchecklis=data},error1 => console.log(error1)
+        )
+    }
+
+    getlistcheckdispat() {
+        this.listchecklis=[];
+        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
+        this.httpclient.get<CheckList[]>(AdressIp.host+'fleet/all_checklist_dispatcheur/',
+            {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
+            data=>{ console.log(data),this.listchecklis=data},error1 => console.log(error1)
+        )
+    }
+
+    getlistQuestionnaire() {
+        this.listquestionnaire=[];
+        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
+        this.httpclient.get<Questionnaire[]>(AdressIp.host+'fleet/all_questionnaire/',
+            {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
+            data=>{ console.log(data),this.listquestionnaire=data},error1 => console.log(error1)
+        )
+    }
+
+    updatequestionnaire(questionnaire:Questionnaire) {
+        this.listquestionnaire=[];
+        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
+        this.httpclient.post<Questionnaire[]>(AdressIp.host+'fleet/update_questionnaire/',questionnaire,
+            {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
+            data=>{ console.log(data),this.listquestionnaire=data},error1 => console.log(error1)
         )
     }
 }

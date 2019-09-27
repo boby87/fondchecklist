@@ -6,38 +6,15 @@
     <ion-title>dispatcher</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-card >
-    <ion-card-header>
-      <ion-row>
-        <ion-col>
-          <ion-label>Matricule</ion-label>
-        </ion-col>
-        <ion-col>
-          <ion-label>Status</ion-label>
-        </ion-col>
-        <ion-col>
-          <ion-label>Note</ion-label>
-        </ion-col>
-      </ion-row>
-    </ion-card-header>
-
     <ion-card-content>
-      <ion-row *ngFor="let c of fleetchecklisdispa.listchecklis">
-        <ion-item>
-          <ion-col>
-            <ion-label>{{c.vehicules.matricule}}</ion-label>
-          </ion-col>
-          <ion-col>
-            <ion-label>{{c.status}}</ion-label>
-          </ion-col>
-          <ion-col>
-            <ion-label>{{c.note}}</ion-label>
-          </ion-col>
-        </ion-item>
-      </ion-row>
-    </ion-card-content>
+      <ion-item-group *ngFor="let c of fleetchecklisdispa.listchecklis">
+          <ion-label>Matricule vehicule: <strong>{{c.vehicules.matricule}}</strong></ion-label>
+          <ion-label>Status: <strong>{{c.status}}</strong></ion-label>
+          <ion-label>Note: <strong>{{c.note}}</strong></ion-label>
+      </ion-item-group>
+  </ion-card-content>
 
   </ion-card>
 </ion-content>

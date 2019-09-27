@@ -19,6 +19,8 @@ const routes: Routes = [
   { path: 'registerchauffeur', loadChildren: './registerchauffeur/registerchauffeur.module#RegisterchauffeurPageModule' },
   { path: 'checklist', loadChildren: './checklist/checklist.module#ChecklistPageModule' },
   { path: 'registerchecklist', loadChildren: './registerchecklist/registerchecklist.module#RegisterchecklistPageModule' },
+  { path: 'etachecklist', loadChildren: './etachecklist/etachecklist.module#EtachecklistPageModule' },
+  { path: 'updatequestionnaire', loadChildren: './updatequestionnaire/updatequestionnaire.module#UpdatequestionnairePageModule' },
 ];
 
 @NgModule({

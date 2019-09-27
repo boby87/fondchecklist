@@ -8,12 +8,21 @@
 </ion-header>
 
 <ion-content>
-<ion-list *ngFor="let t of fleetservice.listtransporteur">
-  <ion-item (click)="GoToTransporte(t)">
+  <ion-card-subtitle>
+    <ion-button (click)="addtransporteur()">Ajouter Transporteur</ion-button>
+  </ion-card-subtitle>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Liste Transporteur</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
-      <ion-label>Nom Transporteur: <strong>{{t.nomtransporteur}}</strong> </ion-label>
-      <ion-label>Date Expiration: <strong>{{t.dateexprirationscdp}}</strong> </ion-label>
+      <ion-list *ngFor="let t of fleetservice.listtransporteur">
+        <ion-item (click)="GoToTransporte(t)">
+          <ion-card-content>
+            <ion-label>Nom Transporteur: <strong>{{t.nomtransporteur}}</strong> </ion-label>
+          </ion-card-content>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
-  </ion-item>
-</ion-list>
+  </ion-card>
 </ion-content>

@@ -11,7 +11,7 @@ export class DispatcherPage implements OnInit {
   constructor(public fleetchecklisdispa:FleetManagerService) { }
 
   ngOnInit() {
-    this.fleetchecklisdispa.GetAllchecklist();
+    this.fleetchecklisdispa.getlistcheckdispat();
   }
 
 }

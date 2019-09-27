@@ -7,9 +7,13 @@ export class Vehicules {
     pvtr:number;
     pvsr:number;
     immatriculaiontracteur:string;
-    assurance:string;
+    expirationassurance:Date;
     agetracteur:number;
     ageciterne:number;
+    compartiment:string;
+    expirationjaugeage:Date;
+    expirationvistetechnique:Date;
     immatriculationciterne:string;
     checklists:CheckList[];
+    capaciteciterne:number;
 }

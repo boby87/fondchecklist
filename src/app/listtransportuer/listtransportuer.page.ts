@@ -20,4 +20,8 @@ export class ListtransportuerPage implements OnInit {
     this.fleetservice.transporteur=t;
     this.router.navigateByUrl("/transporteur")
     }
+
+    addtransporteur() {
+        this.router.navigateByUrl("/registertransporteur")
+    }
 }

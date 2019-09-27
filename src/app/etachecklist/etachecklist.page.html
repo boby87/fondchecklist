@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>etachecklist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-label>{{fleetserviceetatcheck.chauffeur.nomchauffeur}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.chauffeur.permis}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.chauffeur.dateexpire}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.chauffeur.datedelivrance}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.chauffeur.dateexprirationscdp}}</ion-label>
+        </ion-list>
+      </ion-col>
+
+      <ion-col>
+        <ion-list>
+          <ion-label>{{fleetserviceetatcheck.vehicule.matricule}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.vehicule.expirationassurance}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.vehicule.immatriculaiontracteur}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.vehicule.ageciterne}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.vehicule.agetracteur}}</ion-label>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-item *ngFor="let q of fleetserviceetatcheck.checklist.listquestions">
+      <ion-row>
+        <ion-col>
+          <ion-label>{{q.description}}</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-label>{{q.conforme}}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-card-header>
+</ion-card>
+  <ion-button (click)="upchecklist(fleetserviceetatcheck.checklist)" expand="block">Valider</ion-button>
+  <ion-input placeholder="Commentaire" [(ngModel)]="fleetserviceetatcheck.checklist.designation" ></ion-input>
+  <ion-input placeholder="Nom Checkeur" [(ngModel)]="fleetserviceetatcheck.checklist.namecheckeur"  ></ion-input>
+  <ion-label *ngIf="is_conforme"><strong color="danger">il existe des champs non remplis</strong></ion-label>
+</ion-content>

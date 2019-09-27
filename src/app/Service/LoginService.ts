@@ -36,6 +36,7 @@ export class LoginService {
         this.roles=jwthelper.decodeToken(this.jwtokent).roles;
         if (this.roles[0].authority==='FLEET MANAGER') {
             this.router.navigateByUrl("/fleetmanager");
+            this.is_truck=true;
         }
         if (this.roles[0].authority==='TRUCK INSPECTOR') {
             this.is_truck=false;

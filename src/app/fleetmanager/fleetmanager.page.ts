@@ -9,20 +9,27 @@ import {Router} from '@angular/router';
 })
 export class FleetmanagerPage implements OnInit {
 
-  constructor(public router:Router) { }
+  public viewchecklist:boolean;
+  constructor(public router:Router,public fleetcheckfleet:FleetManagerService) { }
 
   ngOnInit() {
+      this.viewchecklist=true;
   }
 
-    AllTransporteur() {
+    AddChecklist() {
+        this.router.navigateByUrl("/registerchecklist");
+    }
+
+    GoToGereTransporteur() {
         this.router.navigateByUrl("/listtransportuer")
     }
 
-    GoToAddTransporteur() {
-        this.router.navigateByUrl("/registertransporteur")
+    GoToViewChecklist() {
+        this.fleetcheckfleet.getlistcheckfleet();
+        this.viewchecklist=false;
     }
 
-    AllVehicule() {
-        this.router.navigateByUrl("/vehicules")
+    GoToUpdateQuestionnaire() {
+      this.router.navigateByUrl("/updatequestionnaire")
     }
 }

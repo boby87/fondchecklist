@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FleetManagerService} from '../Service/FleetManagerService';
 import {Router} from '@angular/router';
 import {LoginService} from '../Service/LoginService';
+import {Vehicules} from '../Model/Vehicules';
 
 @Component({
   selector: 'app-transporteur',
@@ -28,12 +29,9 @@ export class TransporteurPage implements OnInit {
         this.router.navigateByUrl("/shetransporteur");
     }
 
-    AddChecklist() {
-        this.router.navigateByUrl("/registerchecklist");
-    }
 
-    Gochecklist(id_vehicule: number) {
-        this.fleelservicetra.GetChecklist(id_vehicule);
-        this.router.navigateByUrl("/checklist");
+    GotoChauffeur(v:Vehicules){
+      this.fleelservicetra.vehicule=v;
+        this.router.navigateByUrl("/listchauffeurs");
     }
 }

@@ -10,4 +10,5 @@ export class Chauffeur {
    phone:number;
    transporteurs:Transporteur;
    vehiculesList:Vehicules[];
+   dateexprirationscdp:Date;
 }

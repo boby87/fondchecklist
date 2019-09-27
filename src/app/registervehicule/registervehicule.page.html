@@ -8,18 +8,13 @@
   <form (ngSubmit)="registervehicule(f.value)" #f="ngForm">
     <ion-row>
       <ion-col>
-        <ion-list inset>
+        <ion-list>
 
           <ion-item>
-            <ion-input type="text" placeholder="matricule Trancteur" name="matricule" ngModel required></ion-input>
+            <ion-input type="text" placeholder="matricule Vehicule" name="matricule" ngModel required></ion-input>
           </ion-item>
-
           <ion-item>
-            <ion-input type="text" placeholder="immatriculaion Trancteur" name="immatriculaiontracteur" ngModel required></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-input type="text" placeholder="assurance" name="assurance" ngModel required></ion-input>
+            <ion-input type="text" placeholder="matricule Tracteur" name="immatriculaiontracteur" ngModel required></ion-input>
           </ion-item>
 
           <ion-item>
@@ -27,20 +22,47 @@
           </ion-item>
 
           <ion-item>
+            <ion-input type="text" placeholder="immatriculation citerne" name="immatriculationciterne" ngModel required></ion-input>
+          </ion-item>
+          <ion-item>
             <ion-input type="number" placeholder="age citerne" name="ageciterne" ngModel required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="poid à vide tracteur" name="pvtr" ngModel required></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input type="number" placeholder="immatriculation citerne" name="immatriculationciterne" ngModel required></ion-input>
+            <ion-input type="text" placeholder="poid à vide citerne" name="pvsr" ngModel required></ion-input>
           </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Capacité Citerne" name="capaciteciterne" ngModel required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="compartiment" name="compartiment" ngModel required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Expiration jaugeage</ion-label>
+            <ion-input type="date"  name="expirationjaugeage" ngModel required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Expiration visite technique</ion-label>
+            <ion-input type="date"  name="expirationvistetechnique" ngModel required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Date Expiration Assurance</ion-label>
+            <ion-input type="date"  name="expirationassurance" ngModel required></ion-input>
+          </ion-item>
+
+
 
         </ion-list>
       </ion-col>
     </ion-row>
 
     <ion-row>
-      <ion-col class="signup-col">
-        <button ion-button  full type="submit" [disabled]="f.invalid">Register</button>
+      <ion-col >
+        <ion-button  expand="block" type="submit" [disabled]="f.invalid">Register</ion-button>
       </ion-col>
     </ion-row>
 

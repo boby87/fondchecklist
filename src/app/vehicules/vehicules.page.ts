@@ -11,7 +11,7 @@ export class VehiculesPage implements OnInit {
   constructor(public fleetservice:FleetManagerService) { }
 
   ngOnInit() {
-    this.fleetservice.Allvehicule();
+    this.fleetservice.Allvehicule(this.fleetservice.transporteur.id_transporteur);
   }
 
 }

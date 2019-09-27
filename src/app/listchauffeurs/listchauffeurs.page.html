@@ -8,5 +8,19 @@
 </ion-header>
 
 <ion-content>
+  <ion-list *ngFor="let c of fleelservicech.transporteur.chauffeurlist">
+      <ion-card-content>
+        <ion-item-group (click)="Gochecklist(c)">
 
+            <ion-label>Nom : <strong>{{c.nomchauffeur}}</strong> </ion-label>
+            <ion-label>Phone : <strong>{{c.phone}}</strong> </ion-label>
+            <ion-label>Date Expiration SCDP: <strong>{{c.dateexprirationscdp}}</strong> </ion-label>
+
+            <ion-label>Permis : <strong>{{c.permis}}</strong> </ion-label>
+            <ion-label>Date Delivrance : <strong>{{c.datedelivrance}}</strong> </ion-label>
+            <ion-label>Date Expiration : <strong>{{c.dateexpire}}</strong> </ion-label>
+
+        </ion-item-group>
+      </ion-card-content>
+  </ion-list>
 </ion-content>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FleetManagerService} from '../Service/FleetManagerService';
 import {CheckListQuestions} from '../Model/CheckListQuestions';
 import {CheckList} from '../Model/CheckList';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-checklist',
@@ -10,35 +11,13 @@ import {CheckList} from '../Model/CheckList';
 })
 export class ChecklistPage implements OnInit {
 
-  constructor(public fleetservicecheck:FleetManagerService) { }
+  constructor(public fleetservicecheck:FleetManagerService,public router:Router) { }
 
   ngOnInit() {
   }
 
-  upchecklist(checklist:CheckList){
-      debugger;
-     let i=0;
-     let status:string;
-     let note=0;
-     while (i<checklist.listquestions.length){
-       if (checklist.listquestions[i].etatquestion=="bloquant"&& checklist.listquestions[i].conforme=="oui"){
-         status="pas conforme";
-       }
-       if (checklist.listquestions[i].conforme=="oui"){
-         checklist.note +=1;
-       }
-       i++;
-     }
-     if (status=="pas conforme"){
-         alert(status);
-     }else if (note<(80*checklist.listquestions.length)/100){
-       status="pas conforme"
-         alert(status);
 
-     }else {
-         alert("conforme")
-     }
-     checklist.status=status;
-     this.fleetservicecheck.validerchecklist(checklist);
-  }
+    GotoEtatchecklist() {
+        this.router.navigateByUrl("/etachecklist")
+    }
 }

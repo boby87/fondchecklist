@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/"> </ion-back-button>
+    </ion-button>
+    <ion-title>updatequestionnaire</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="do_update">
+    <ion-card-content *ngFor="let q of fleetserviceupdate.listquestionnaire">
+      <ion-item (click)="viwquestion(q)">
+          <ion-list>
+            <ion-label>{{q.description}}</ion-label>
+            <ion-label><strong>{{q.etatquestion}}</strong></ion-label>
+          </ion-list>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+<ion-card *ngIf="!do_update">
+  <ion-card-content>
+    <ion-input type="text" [(ngModel)]="questionnaire.description" required placeholder="Entrez les question"></ion-input>
+    <ion-item-group>
+      <ion-label>Etat</ion-label>
+      <ion-select [(ngModel)]="questionnaire.etatquestion" >
+        <ion-select-option>normal</ion-select-option>
+        <ion-select-option>bloquant</ion-select-option>
+      </ion-select>
+    </ion-item-group>
+    <ion-button expand="block" (click)="updatequestionnaire(questionnaire)">Ok</ion-button>
+  </ion-card-content>
+</ion-card>
+</ion-content>
