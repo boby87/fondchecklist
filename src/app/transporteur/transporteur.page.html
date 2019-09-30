@@ -8,17 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid *ngIf="loginservice.is_truck">
-        <div class="ion-text-start">
-          <ion-button (click)="AddVehicule()">Add Vehicule</ion-button>
-        </div>
-        <div class="ion-text-start">
-          <ion-button (click)="AddChauffeur()">Add Chauffeur</ion-button>
-        </div>
-        <div class="ion-text-start">
-          <ion-button (click)="UpdateTransporteur()">Update Transporteur</ion-button>
-        </div>
-  </ion-grid>
+  <ion-list *ngIf="loginservice.is_truck">
+          <ion-button expand="block" (click)="AddVehicule()">Add Vehicule</ion-button>
+          <ion-button expand="block" (click)="AddChauffeur()">Add Chauffeur</ion-button>
+          <ion-button expand="block" (click)="GoToUpdateTransporteur(transporteurs)">Update Transporteur</ion-button>
+          <ion-button expand="block" (click)="AllVehicule()">Liste Vehicule</ion-button>
+          <ion-button expand="block" (click)="AllChauffeur()">Liste Chauffeur</ion-button>
+  </ion-list>
 
   <ion-card *ngIf="!loginservice.is_truck">
     <ion-card-title>
@@ -31,5 +27,34 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
+
+    <ion-card>
+        <ion-card-content *ngIf="is_vehicule">
+            <ion-label>Update Vehicule</ion-label>
+            <ion-item-group *ngFor="let v of fleelservicetra.transporteur.vehiculesList">
+                <ion-list (click)="GoToUpdateVehicule(v)">
+                    <ion-label>Matricule: <strong>{{v.matricule}}</strong></ion-label>
+                    <ion-label>Age Tracteur: <strong>{{v.agetracteur}}</strong></ion-label>
+                    <ion-label>Age Citerne: <strong>{{v.ageciterne}}</strong></ion-label>
+                    <ion-label>Immatriculation Tracteur: <strong>{{v.immatriculaiontracteur}}</strong></ion-label>
+                    <ion-label>Immatriculaion Citerne: <strong>{{v.immatriculationciterne}}</strong></ion-label>
+                    <ion-label>Date Expiration Assurance: <strong>{{v.expirationassurance | date}}</strong></ion-label>
+                </ion-list>
+            </ion-item-group>
+        </ion-card-content>
+
+        <ion-card-content *ngIf="is_chauffeur">
+            <ion-label>Update Chauffeur</ion-label>
+            <ion-item-group *ngFor="let c of fleelservicetra.transporteur.chauffeurlist">
+                <ion-list (click)="GoToUpdateChauffeur(c)">
+                    <ion-label>Nom Chauffeur: <strong>{{c.nomchauffeur}}</strong></ion-label>
+                    <ion-label>Phone: <strong>{{c.phone}}</strong></ion-label>
+                    <ion-label>Permis: <strong>{{c.permis}}</strong></ion-label>
+                    <ion-label>Date Expiration SCDP: <strong>{{c.dateexprirationscdp | date}}</strong></ion-label>
+                    <ion-label>Date Delivrance: <strong>{{c.datedelivrance | date}}</strong></ion-label>
+                </ion-list>
+            </ion-item-group>
+        </ion-card-content>
+    </ion-card>
 
 </ion-content>

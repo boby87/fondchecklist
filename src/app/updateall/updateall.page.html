@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>updateall</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card-content *ngIf="fleetserviceupda.is_update_chau">
+    <ion-grid>
+      <ion-row color="primary" >
+        <ion-col>
+          <div>
+            <h3>Update Driver!</h3>
+          </div>
+          <div>
+            <ion-item>
+              <ion-input  [(ngModel)]="chauffeur.nomchauffeur" type="text" placeholder="Nom chauffeur" ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input [(ngModel)]="chauffeur.permis" type="text" placeholder="permis"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>date Delivrance Assurance</ion-label>
+              <ion-input [(ngModel)]="chauffeur.datedelivrance" type="date" placeholder="date Delivrance Assurance"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>date Expire Assurance</ion-label>
+              <ion-input [(ngModel)]="chauffeur.dateexpire" type="date" placeholder="date Expire Assurance" ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Date Expriration SCDP</ion-label>
+              <ion-input [(ngModel)]="chauffeur.dateexprirationscdp" type="date" placeholder="Date Expriration SCDP" ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input [(ngModel)]="chauffeur.phone" type="tel" placeholder="Phone " ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div>
+            <ion-button   type="submit" (click)="UpdateChauffeur(chauffeur)" expand="block">Update</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+
+
+    <ion-card-content *ngIf="fleetserviceupda.is_update_vehic">
+        <ion-row>
+            <ion-col>
+                <ion-list>
+                    <ion-item>
+                        <ion-input type="text" placeholder="matricule Vehicule" [(ngModel)]="vehicule.matricule"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" placeholder="matricule Tracteur" [(ngModel)]="vehicule.immatriculaiontracteur"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="number" placeholder="Age tracteur" [(ngModel)]="vehicule.agetracteur"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" placeholder="immatriculation citerne" [(ngModel)]="vehicule.immatriculationciterne"  ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="number" placeholder="age citerne" [(ngModel)]="vehicule.ageciterne"  ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" placeholder="poid à vide tracteur" [(ngModel)]="vehicule.pvtr"  ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" placeholder="poid à vide citerne" [(ngModel)]="vehicule.pvsr" ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Capacité Citerne" [(ngModel)]="vehicule.capaciteciterne"  ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" placeholder="compartiment" [(ngModel)]="vehicule.compartiment"  ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Expiration jaugeage</ion-label>
+                        <ion-input type="date"  [(ngModel)]="vehicule.expirationjaugeage" ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Expiration visite technique</ion-label>
+                        <ion-input type="date"  [(ngModel)]="vehicule.expirationvistetechnique" ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Date Expiration Assurance</ion-label>
+                        <ion-input type="date"  [(ngModel)]="vehicule.expirationassurance" ></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col >
+                <ion-button  expand="block" type="submit" (click)="UpdateVehiculetr(vehicule)">Update</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-card-content>
+
+
+    <ion-card-content  *ngIf="fleetserviceupda.is_update_trans">
+        <ion-grid>
+            <ion-row color="primary">
+                <ion-col>
+                    <div>
+                        <h3>Update Transporteur!</h3>
+                    </div>
+                    <div>
+                        <ion-item>
+                            <ion-input  [(ngModel)]="transporteur.nomtransporteur" type="text" placeholder="Nom Transporteur"></ion-input>
+                        </ion-item>
+                    </div>
+                    <div>
+                        <ion-button (click)="UpdateTransporteurss(transporteur)" type="submit" expand="block">Register</ion-button>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card-content>
+
+</ion-content>

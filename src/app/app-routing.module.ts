@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'registerchecklist', loadChildren: './registerchecklist/registerchecklist.module#RegisterchecklistPageModule' },
   { path: 'etachecklist', loadChildren: './etachecklist/etachecklist.module#EtachecklistPageModule' },
   { path: 'updatequestionnaire', loadChildren: './updatequestionnaire/updatequestionnaire.module#UpdatequestionnairePageModule' },
+  { path: 'updateall', loadChildren: './updateall/updateall.module#UpdateallPageModule' },
 ];
 
 @NgModule({

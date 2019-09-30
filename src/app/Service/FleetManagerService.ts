@@ -21,6 +21,9 @@ export class FleetManagerService {
     public checklist:CheckList=new CheckList();
     public listchecklis:CheckList[]=[];
     public listchauffeur:Chauffeur[]=[];
+    public is_update_vehic:boolean;
+    public is_update_chau:boolean;
+    public is_update_trans:boolean;
     public chauffeur:Chauffeur=new Chauffeur()//cette variable est pour associer le chauffeur au vehicule
     vehicule: Vehicules=new Vehicules();
     public listquestionnaire: Questionnaire[]=[];
@@ -167,6 +170,40 @@ export class FleetManagerService {
         this.httpclient.post<Questionnaire[]>(AdressIp.host+'fleet/update_questionnaire/',questionnaire,
             {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
             data=>{ console.log(data),this.listquestionnaire=data},error1 => console.log(error1)
+        )
+    }
+
+    UpdateChauffeur(chauffeur: Chauffeur) {
+        this.chauffeur=new Chauffeur();
+        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
+        this.httpclient.post<Chauffeur>(AdressIp.host+'fleet/update_chauffeur/'+this.transporteur.id_transporteur,chauffeur,
+            {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
+            data=>{ console.log(data),
+                this.router.navigateByUrl('/transporteur'),
+                this.chauffeur=data},error1 => console.log(error1)
+        )
+    }
+
+    UpdateVehicule(vehicule: Vehicules) {
+        this.vehicule=new Vehicules();
+        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
+        this.httpclient.post<Vehicules>(AdressIp.host+'fleet/update_vehicule/'+this.transporteur.id_transporteur,vehicule,
+            {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
+            data=>{ console.log(data),
+                this.router.navigateByUrl('/transporteur'),
+                this.vehicule=data},error1 => console.log(error1)
+        )
+    }
+
+
+    UpdateTransporteurola(transporteur: Transporteur) {
+        this.transporteur=new Transporteur();
+        if (this.loginservice.jwtokent==null) this.loginservice.loadtoken();
+        this.httpclient.post<Transporteur>(AdressIp.host+'fleet/update_vehicule/',transporteur,
+            {headers:new HttpHeaders({'Authorization':this.loginservice.jwtokent})}).subscribe(
+            data=>{ console.log(data),
+                this.transporteur=data,
+                this.router.navigateByUrl('/transporteur')},error1 => console.log(error1)
         )
     }
 }

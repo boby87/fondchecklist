@@ -12,16 +12,16 @@
         <ion-list>
           <ion-label>{{fleetserviceetatcheck.chauffeur.nomchauffeur}}</ion-label>
           <ion-label>{{fleetserviceetatcheck.chauffeur.permis}}</ion-label>
-          <ion-label>{{fleetserviceetatcheck.chauffeur.dateexpire}}</ion-label>
-          <ion-label>{{fleetserviceetatcheck.chauffeur.datedelivrance}}</ion-label>
-          <ion-label>{{fleetserviceetatcheck.chauffeur.dateexprirationscdp}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.chauffeur.dateexpire | date}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.chauffeur.datedelivrance | date}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.chauffeur.dateexprirationscdp | date}}</ion-label>
         </ion-list>
       </ion-col>
 
       <ion-col>
         <ion-list>
           <ion-label>{{fleetserviceetatcheck.vehicule.matricule}}</ion-label>
-          <ion-label>{{fleetserviceetatcheck.vehicule.expirationassurance}}</ion-label>
+          <ion-label>{{fleetserviceetatcheck.vehicule.expirationassurance | date}}</ion-label>
           <ion-label>{{fleetserviceetatcheck.vehicule.immatriculaiontracteur}}</ion-label>
           <ion-label>{{fleetserviceetatcheck.vehicule.ageciterne}}</ion-label>
           <ion-label>{{fleetserviceetatcheck.vehicule.agetracteur}}</ion-label>
