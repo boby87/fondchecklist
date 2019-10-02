@@ -5,8 +5,10 @@
 </ion-header>
 
 <ion-content >
-    <ion-img src="assets/ola.png"></ion-img>
   <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+
+          <ion-img src="assets/ola.png"></ion-img>
+
     <ion-item>
       <ion-input type="text" name="username" ngModel placeholder="UserName"></ion-input>
     </ion-item>
