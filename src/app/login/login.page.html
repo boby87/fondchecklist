@@ -4,18 +4,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
-  <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
-
-          <ion-img src="assets/ola.png"></ion-img>
-
-    <ion-item>
-      <ion-input type="text" name="username" ngModel placeholder="UserName"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input type="password" name="password" ngModel placeholder="Password"></ion-input>
-    </ion-item>
-    <ion-button type="submit" expand="block">Login</ion-button>
-  </form>
+<ion-content class="ion-float-lg-start" >
+  <ion-card>
+    <ion-card-content>
+      <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+        <ion-img src="assets/ola.png"></ion-img>
+        <ion-item>
+          <ion-input type="text" name="username" ngModel placeholder="UserName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" name="password" ngModel placeholder="Password"></ion-input>
+        </ion-item>
+        <ion-button type="submit" expand="block">Login</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 <!-- https://ionicframework.com/docs/v3/components/#loading-->
